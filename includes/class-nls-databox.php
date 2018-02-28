@@ -67,7 +67,7 @@ class NLSDatabox {
 	/**
 	 * Load the required dependencies for this plugin.
 	 *
-	 * Sets up Composer and gets Client
+	 * Gets tokenized Client object
 	 *
 	 * @since    1.0.0
 	 * @access   private
@@ -112,13 +112,23 @@ class NLSDatabox {
      *
      * @since   1.0.0
      * @access  public
-     * @var     string   $type  Either 'course' or 'membership'
-     * @var     int      $id    ID of course or membership
+     * @var     string   $type      Either 'course' or 'membership'
+     * @var     int      $id        ID of course or membership
+     * @var     string   $period    Either '7days' or 'mtd' (month to date)
      *
-     * @return  int     Revenue
+     * @return  int     Revenue for specified type over period
      */
-    public function getRevenue($type = 'course', $id) {
-        return 1000;
+    public function getRevenue($type = 'course', $id, $period = '7days') {
+        switch ($type) {
+            case "course":
+            default:
+                
+            break;
+
+            case "membership":
+
+            break;
+        }
     }
 
 	/**
