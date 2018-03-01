@@ -100,13 +100,44 @@ class NLSDatabox {
     }
 
     public function pushAll() {
-			$revenueAnalytics = new LLMS_Analytics_Revenue_Widget();
-			return $revenueAnalytics;
+			//$revenueAnalytics = new LLMS_Analytics_Revenue_Widget();
+			//return $revenueAnalytics;
         /*return $this->client->insertAll([
             ['sales', 203],
             ['sales', 103, '2018-01-05 14:25:00'],
             ['sales', 305, '2018-01-21 17:30:37']
         ]);*/
+
+				global $wpdb;
+				$txn_meta_join = '';
+				$txn_meta_where = '';
+				$query = "SELECT
+							(
+								IFNULL( SUM( (
+									SELECT price.meta_value
+									FROM {$wpdb->postmeta} AS price
+									WHERE
+										  price.meta_key = '_llms_amount'
+									  AND price.post_id IN( txns.ID )
+								) ), 0 ) - IFNULL( SUM((
+									SELECT refund.meta_value
+									FROM {$wpdb->postmeta} AS refund
+									WHERE
+										  refund.meta_key = '_llms_refund_amount'
+									  AND refund.post_id IN( txns.ID )
+								) ), 0 )
+							) AS revenue
+						FROM {$wpdb->posts} AS txns
+						WHERE
+						        ( txns.post_status = 'llms-txn-succeeded' OR txns.post_status = 'llms-txn-refunded' )
+						    AND txns.post_type = 'llms_transaction'
+							AND txns.post_date BETWEEN CAST( %s AS DATETIME ) AND CAST( %s AS DATETIME )
+
+						";
+
+					$result = $wpdb->prepare($query);
+
+					return var_dump($result);
     }
 
     /**
