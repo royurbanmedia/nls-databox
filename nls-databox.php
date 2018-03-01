@@ -56,7 +56,8 @@ function pushAll(WP_REST_Request $request) {
 
 function getUsers(WP_REST_Request $request) {
   $NLSDatabox = new NLSDatabox();
-  $response = $NLSDatabox->getUsers('all');
+  //$response = $NLSDatabox->getUsers('all');
+  $response = array('hello');
   return json_encode($response);
 }
 
