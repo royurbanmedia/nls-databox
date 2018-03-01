@@ -115,7 +115,8 @@ class NLSDatabox {
 
 					//$users = get_users(array('role' => 'student'));
 
-					$users = count_users();
+					//$users = count_users();
+					$users = array('hello');
 				break;
 
 				return $users;
