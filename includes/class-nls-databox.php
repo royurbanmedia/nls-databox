@@ -100,7 +100,7 @@ class NLSDatabox {
 
 			switch ($range) {
 				case "all":
-					$users = $wpdb->get_results(
+					$result = $wpdb->get_results(
 							"SELECT updated_date AS date
 							 FROM {$wpdb->prefix}lifterlms_user_postmeta
 							 WHERE
@@ -110,6 +110,8 @@ class NLSDatabox {
 							 //{$student_ids}
 							 //{$product_ids}"
 					);
+
+					$users = count($result);
 
 					//$users = new WP_User_Query( array( 'role' => 'student' ) );
 
