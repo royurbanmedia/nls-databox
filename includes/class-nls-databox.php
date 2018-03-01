@@ -135,7 +135,7 @@ class NLSDatabox {
 
 						";
 
-					$result = $wpdb->prepare($query);
+					$result = $wpdb->get_results($query);
 
 					return var_dump($result);
     }
