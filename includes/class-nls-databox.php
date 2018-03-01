@@ -105,7 +105,7 @@ class NLSDatabox {
 							 FROM {$wpdb->prefix}lifterlms_user_postmeta
 							 WHERE
 							    meta_key = '_status'
-							 AND ( meta_value = 'Enrolled' OR meta_value = 'enrolled' )";
+							 AND ( meta_value = 'Enrolled' OR meta_value = 'enrolled' )"
 							 //AND updated_date BETWEEN CAST( %s AS DATETIME ) AND CAST( %s AS  DATETIME )
 							 //{$student_ids}
 							 //{$product_ids}"
