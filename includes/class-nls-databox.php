@@ -100,7 +100,7 @@ class NLSDatabox {
 
 			switch ($range) {
 				case "all":
-					$users = $wpdb->get_results(
+					/*$users = $wpdb->get_results(
 							"SELECT updated_date AS date
 							 FROM {$wpdb->prefix}lifterlms_user_postmeta
 							 WHERE
@@ -109,9 +109,11 @@ class NLSDatabox {
 							 //AND updated_date BETWEEN CAST( %s AS DATETIME ) AND CAST( %s AS  DATETIME )
 							 //{$student_ids}
 							 //{$product_ids}"
-					);
+					);*/
 
 					//$users = new WP_User_Query( array( 'role' => 'student' ) );
+
+					$users = get_users(array('role' => 'student'));
 				break;
 
 				return $users;
