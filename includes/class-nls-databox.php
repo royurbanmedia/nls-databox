@@ -118,9 +118,9 @@ class NLSDatabox {
 					//$users = count_users();
 					$users = array('hello');
 				break;
-
-				return $users;
 			}
+
+			return $users;
 		}
 
     public function push() {
