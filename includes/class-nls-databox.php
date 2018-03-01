@@ -114,7 +114,7 @@ class NLSDatabox {
 					//$users = new WP_User_Query( array( 'role' => 'student' ) );
 
 					$result = get_users(array('role' => 'student'));
-					$users = $result['total_users'];
+					$users = count($result);
 
 					//$users = count_users();
 				break;
