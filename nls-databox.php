@@ -83,4 +83,9 @@ add_action( 'rest_api_init', function () {
         'methods' => 'GET',
         'callback' => 'pushAll',
     ) );
+
+    register_rest_route( 'nls-databox/v1', '/getUsers', array(
+        'methods' => 'GET',
+        'callback' => 'getUsers',
+    ) );
 } );
