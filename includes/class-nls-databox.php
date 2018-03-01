@@ -113,10 +113,9 @@ class NLSDatabox {
 
 					//$users = new WP_User_Query( array( 'role' => 'student' ) );
 
-					//$users = get_users(array('role' => 'student'));
+					$users = get_users(array('role' => 'student'));
 
 					//$users = count_users();
-					$users = array('hello');
 				break;
 			}
 
