@@ -130,8 +130,8 @@ class NLSDatabox {
 						FROM {$wpdb->posts} AS txns
 						WHERE
 						        ( txns.post_status = 'llms-txn-succeeded' OR txns.post_status = 'llms-txn-refunded' )
-						    AND txns.post_type = 'llms_transaction'";
-							//AND txns.post_date BETWEEN CAST( %s AS DATETIME ) AND CAST( %s AS DATETIME )";
+						    AND txns.post_type = 'llms_transaction'
+							AND txns.post_date BETWEEN CAST( '2018-02-01' AS DATETIME ) AND CAST( '2018-03-01' AS DATETIME )";
 
 					$result = $wpdb->get_results($query);
 
