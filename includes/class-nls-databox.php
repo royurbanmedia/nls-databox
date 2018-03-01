@@ -111,7 +111,7 @@ class NLSDatabox {
 							 //{$product_ids}"
 					);*/
 
-					$users = new WP_User_Query( array( 'role' => 'Subscriber' ) );
+					$users = new WP_User_Query( array( 'role' => 'student' ) );
 				break;
 
 				return $users;
