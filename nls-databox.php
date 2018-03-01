@@ -54,6 +54,12 @@ function pushAll(WP_REST_Request $request) {
     return json_encode($response);
 }
 
+function getUsers(WP_REST_Request $request) {
+  $NLSDatabox = new NLSDatabox();
+  $response = $NLSDatabox->getUsers('all');
+  return json_encode($response);
+}
+
 /*
  * API access end points
  */

@@ -95,6 +95,29 @@ class NLSDatabox {
         return $this->clientToken;
     }
 
+		public function getUsers($range) {
+			global $wpdb;
+
+			switch ($range) {
+				case "all":
+					/*$wpdb->get_results(
+							"SELECT updated_date AS date
+							 FROM {$wpdb->prefix}lifterlms_user_postmeta
+							 WHERE
+							    meta_key = '_status'
+							 AND ( meta_value = 'Enrolled' OR meta_value = 'enrolled' )";
+							 //AND updated_date BETWEEN CAST( %s AS DATETIME ) AND CAST( %s AS  DATETIME )
+							 //{$student_ids}
+							 //{$product_ids}"
+					);*/
+
+					$users = new WP_User_Query( array( 'role' => 'Subscriber' ) );
+				break;
+
+				return $users;
+			}
+		}
+
     public function push() {
         return $this->client->push('sales', 123000);
     }
