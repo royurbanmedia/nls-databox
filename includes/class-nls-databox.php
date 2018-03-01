@@ -100,11 +100,13 @@ class NLSDatabox {
     }
 
     public function pushAll() {
-        return $this->client->insertAll([
+			$revenueAnalytics = new LLMS_Analytics_Revenue_Widget();
+			return $revenueAnalytics;
+        /*return $this->client->insertAll([
             ['sales', 203],
             ['sales', 103, '2018-01-05 14:25:00'],
             ['sales', 305, '2018-01-21 17:30:37']
-        ]);
+        ]);*/
     }
 
     /**
@@ -122,7 +124,7 @@ class NLSDatabox {
         switch ($type) {
             case "course":
             default:
-                
+
             break;
 
             case "membership":
