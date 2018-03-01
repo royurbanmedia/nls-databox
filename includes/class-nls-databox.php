@@ -113,9 +113,9 @@ class NLSDatabox {
 
 					//$users = count($result);
 
-					$users = new WP_User_Query( array( 'role' => 'student' ) );
+					$result = new WP_User_Query( array( 'role' => 'student' ) );
 
-					//$users = count($result);
+					$users = count($result->results);
 
 					//$result = get_users(array('role' => 'student'));
 					//$users = count($result);
@@ -124,7 +124,7 @@ class NLSDatabox {
 				break;
 			}
 
-			return var_dump($users);
+			return $users;
 		}
 
     public function push() {
